@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>ChatBot</title>
+	<style type="text/css">
+		
+		*{
+		margin: auto;
+		padding: 5PX;
+		font-family: Trebuchet MS;
+	}
+
+.container{
+	width: 70%;
+	background: gray;
+	height: 100px;
+
+
+}
+
+
+#header p{
+	display: flex;
+	justify-content: center;
+}
+
+
+
+h3 {
+	display: flex;
+	justify-content: center;
+
+}
+
+h1{
+	display: flex;
+	justify-content: center;
+	color: black;
+	}
+
+.get-started {
+    text-align: center;
+	font-size: 300px;
+	width: 450px;
+	color: white;
+	border: lightgrey 20px;
+		
+}
+
+
+#bot-chat-area{
+	text-align: left;
+}
+
+.bot-chat {
+	border: 1px solid blue;
+	border-radius: 10px 10px 10px 10px;
+	margin-left: 0;
+	width: 40%;
+	background-color: white;
+}
+
+.bot-chat p {
+	text-align: left;
+}
+
+.human-chat{
+	text-align: right;
+	border: 1px solid blue;
+	border-radius: 10px 10px 10px 10px;
+	margin-right: 0;
+	width: 40%;
+	background-color: lightgreen;
+
+}
+
+
+
+#chat-body{
+	background: white;
+	display: none;
+}
+
+#chat-input{
+	text-align: center;
+	padding: 20px;
+	position: fixed;
+	bottom: 10px ;
+	width: 100%;	
+	display: none;	
+}
+
+	</style>
+	
+</head>
+<body>
+	<div class="container">
+		<section id="header">
+			<h1>Peacefulpolls</h1>
+		<h3>Let's Promote Violant Free Election</h3>
+		<p>Hi This is a free message box that educates you on how to promote a free violent election
+		</p>
+		</section>
+
+		<div class="get-started">
+			<button onclick="displayChatArea()">Get Started</button>
+		</div>
+		<div id="chat-body">
+    		<div class="bot-chat">
+    			<p>
+                   Hello,<br>fellow citizens and democracy champions! We're here to support peaceful elections, crucial for a nation's well-being. To prevent election violence, type "Prevent." For strategies to resolve such issues, type "Resolve." Let's create a future of harmonious democracy together.
+               </p>
+    		</div>
+		    	
+		    	
+		</div>
+		<div id="chat-input">
+			<input type="text" placeholder="Respond">
+			<button onclick="getHumanInput()">Send</button>   
+		</div>
+	</div>
+ 
+	<script type="text/javascript">
+		let chat_body = document.querySelector('#chat-body');
+        let chat_input= document.querySelector('#chat-input');
+        let getStarted = document.querySelector('.get-started');
+        let chat_input_area = document.querySelector('input');
+		const solution = {
+			prevent: "To prevent violence during free elections and uphold fair democratic processes, countries should consider implementing the following key strategies and measures <br> Legal Framework: Establish and enforce comprehensive election laws that prohibit violence, intimidation, and coercion, along with clear penalties for violators.<br> Independent Electoral Commission: Create an impartial electoral commission responsible for organizing and overseeing elections to minimize bias and manipulation.<br>Civic Education: Promote civic education programs to inform citizens about their electoral rights and responsibilities, encouraging peaceful and informed participation.<br>Security Measures: Deploy law enforcement agencies to maintain peace during elections, ensuring impartiality and preventing favoritism toward any political group.<br>Conflict Mediation: Establish mechanisms for peaceful conflict resolution and mediation to address electoral disputes, promoting dialogue among political parties and stakeholders.<br>International Observers: Invite international election observers to monitor the electoral process and provide impartial assessments of its fairness and integrity.<br>Media Freedom: Guarantee freedom of the press, encourage accurate and unbiased reporting by media outlets, and promote responsible journalism and fact-checking.<br>Voter Registration: Maintain accurate and up-to-date voter registration to prevent fraud and ensure the legitimacy of election outcomes.<br>Transparency: Implement transparent election procedures, including open ballot counting and accessible election data for the public.<br>Electoral Code of Conduct: Encourage political parties and candidates to sign and adhere to a code of conduct promoting non-violence and ethical campaigning.<br>Civil Society Engagement: Involve civil society organizations in monitoring the election process, raising awareness, and holding authorities and candidates accountable.<br>Reconciliation and Healing: Promote post-election reconciliation and healing processes to address any lingering tensions or grievances.<br>By implementing these measures, countries can significantly reduce the risk of violence during free elections and ensure the democratic will of the people is respected and upheld.",
+			resolve: "To achieve violence-free elections, a comprehensive set of strategies and measures must be implemented, including:<br><br>Early Conflict Prevention: Identify and address potential conflicts before they escalate.<br><br>Political Dialogue: Encourage inclusive discussions among political parties to peacefully resolve differences.<br><br>Mediation and Conflict Resolution: Utilize impartial mediators to reach compromises between rival political groups.<br><br>Security Sector Reform: Ensure well-trained and neutral security forces to handle election-related security issues.<br><br>Disarmament and Demobilization: If relevant, disarm armed groups to reduce violence risks.<br><br>Transparency and Accountability: Foster trust through transparent electoral processes and hold officials accountable for misconduct.<br><br>International Mediation and Observation: Engage international organizations to provide oversight and mediation, deterring violence.<br><br>Voter Education: Inform voters about their rights and the importance of peaceful participation.<br><br>Community Engagement: Promote dialogue and peaceful coexistence in local communities.<br><br>Legal Reforms: Update electoral laws and impose clear penalties for election-related violence.<br><br>Media Responsibility: Encourage unbiased reporting and accurate information dissemination.<br><br>Civil Society Involvement: Support civil society organizations in monitoring elections and facilitating conflict resolution.<br><br>Electoral Integrity: Strengthen the electoral process's integrity with secure voting methods and transparency.<br><br>Reconciliation and Healing: After elections, address grievances to promote peaceful coexistence.<br><br>International Support: Seek technical, financial, and diplomatic assistance for peaceful elections.<br><br>Implementing these strategies in a tailored and collaborative manner can help ensure the conduct of violence-free and democratic elections."
+		}
+;
+
+
+        function displayChatArea(){
+			chat_body.style = "display: block";
+			
+			chat_input.style = "display: block";
+
+			getStarted.style = "display: none";
+
+			//    console.log() 
+		}
+
+		function getHumanInput(){
+			let chat_value = chat_input_area.value;
+			humanChat(chat_value)
+		}
+
+
+		function botChat(response) {
+		    let bot_chat_box = `<div class="bot-chat">
+		        <p class="first">${response}</p>
+		    </div>`;
+		    chat_body.insertAdjacentHTML("beforeend", bot_chat_box);
+		}
+
+		function humanChat(chat) {
+		    let human_chat_box = `<div class="human-chat">
+		        <p class="second">${chat}</p>
+		    </div>`;
+			chat_body.insertAdjacentHTML("beforeend", human_chat_box);
+		   let response = chat.toLowerCase()
+		   let validInputs = Object.keys(solution)
+		   if (validInputs.includes(response)) {
+		        if (response === "prevent") {
+		            botChat(solution.prevent);
+
+		            
+		        }
+		         else if (response === "resolve") {
+		            botChat(solution.resolve);
+		            
+		        }
+		    } else {
+		        botChat("Sorry, we can't help you. Please type 'prevent' or 'resolve'.");
+		    }
+		}
+
+	</script>
+</body>
+</html>
