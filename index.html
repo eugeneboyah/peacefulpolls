@@ -13,7 +13,6 @@
 
 .container{
 	width: 70%;
-	background: gray;
 	height: 100px;
 
 
@@ -40,11 +39,22 @@ h1{
 	}
 
 .get-started {
+
+	margin-top: 50px;
     text-align: center;
-	font-size: 300px;
-	width: 450px;
 	color: white;
-	border: lightgrey 20px;
+	border: grey 20px;
+		
+}
+
+
+.get-started button {
+    text-align: center;
+	font-size: 50px;
+	color: white;
+	background-color: grey;
+	padding: 10px;
+	border-radius: 10px 10px 10px 10px;
 		
 }
 
@@ -54,11 +64,11 @@ h1{
 }
 
 .bot-chat {
-	border: 1px solid blue;
+	border: 1px solid lightgrey;
 	border-radius: 10px 10px 10px 10px;
 	margin-left: 0;
 	width: 40%;
-	background-color: white;
+	background-color: lightgrey;
 }
 
 .bot-chat p {
@@ -71,24 +81,37 @@ h1{
 	border-radius: 10px 10px 10px 10px;
 	margin-right: 0;
 	width: 40%;
-	background-color: lightgreen;
+	background-color: white	;
 
 }
 
 
 
 #chat-body{
-	background: white;
+
 	display: none;
+	padding: 200px;
+
 }
 
 #chat-input{
+	position: fixed;
 	text-align: center;
 	padding: 20px;
 	position: fixed;
 	bottom: 10px ;
-	width: 100%;	
+	background-color: white	;
+	margin-bottom: 0;
+	height: 20px;
+	width: 65%;	
 	display: none;	
+}
+
+
+#chat-input input{
+	width: 70%;
+	height: 20px;
+	border-radius: 5px 5px 5px 5px;
 }
 
 	</style>
